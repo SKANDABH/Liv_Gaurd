@@ -1,0 +1,103 @@
+.SERbdy {
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* background-image: url(/images/background0.jpg); */
+    background-color: rgb(45, 44, 44);
+    margin: 0;
+    padding-top: 80px;
+  }
+ .SERbdy h1 {position: relative;
+    background-color: #ffffff;
+    color: #333;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .main {
+    width: 500px;
+    background: transparent;
+    backdrop-filter: blur(30px);
+    position: relative;
+    left:28%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    border: 2px solid rgba(225,255,255,.2);
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  textarea,
+  select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #08f30f;
+  }
+  .checkbox-group label {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  #btns{
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #08f30f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+    display: block;
+    margin: 15px auto 0;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  .form {
+    padding: 30px;
+    border-radius: 10px;
+  }
+  .customer-care {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .customer-care h2 {
+    margin-top: 0;
+  }
+  .customer-care p {
+    margin-bottom: 10px;
+  }
+  .customer-care .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  .customer-care .contact-info img {
+    margin-right: 10px;
+    border-radius: 50%;
+  }
