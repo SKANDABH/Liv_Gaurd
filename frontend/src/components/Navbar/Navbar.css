@@ -1,0 +1,138 @@
+.navbar{
+ position: relative;
+    background-color: rgb(242, 38, 38);
+    border-radius: 40px;
+    height: 50px;
+    top:45px;
+
+}
+.navbar-menu{
+    font-size: 80px;
+    gap: 50px;
+    position: relative;       
+    top:-50px;
+}
+.navbar .navbar-menu ul{
+    overflow: auto;
+    
+}
+
+.navbar .navbar-menu li{
+   padding-top:1.3cm;
+    float:left;
+    list-style: none; 
+    margin: 13px 40px;
+    font-size: 20px;
+    gap:300px;
+    padding-right:60px;
+    text-decoration: none;
+    color: white;
+   
+}
+.navbar .navbar-menu li a{color: rgb(255, 255, 255);
+  position:absolute;
+  top: 60px;
+}
+.navbar .name{
+    position: relative;
+    top: 15px;
+    left: 800px;
+    font-size: 80px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(171, 25, 25);
+    border: 1px solid black;
+    font-style: bold;
+}
+
+
+.navbar-logo #img1{  position:absolute;
+    height: 40px;
+    width: 100px;
+    margin-left:0px;
+    height: 5cm;
+  top:-120px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+#img2{
+    position: absolute;
+    right:30px;
+    width: 30px;
+    height: 30px;
+    margin-left:0px;
+    top:16px;
+}
+/* .navbar .nav-cart {
+    position: relative;
+} */
+ .navbar .nav-cart .nav-cart-count{
+    position: absolute;
+    top: 10px;
+    right: 2.5%;
+    height: 10px; /* Adjust the height as needed */
+    width:5px; /* Adjust the width as needed */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: -3px; */
+  /* margin-left: -55px; */
+  border-radius: 11px;
+  font-size: 20px;
+  background-color: chartreuse;
+  color: white;
+}
+/* Add this to your CSS file */
+
+  
+
+.navbar .navbar-menu .hovered a {
+    color: black;
+  }
+  
+  .navbar .navbar-menu li a:hover{
+    color:black;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;}
+#imga{
+    position: absolute;
+    top:-50px;
+    left: 400px;
+    height: 50px;
+    width:300px;
+  } 
+  @media (max-width: 767px)  {
+    #imga{position: relative;
+    left:14.5rem;
+    height: 3rem;width:90%;
+  }
+  .btn{position: relative;
+  top: -210px;
+  left:12px;
+ height:2rem;
+padding-bottom: .2px;}
+.dropdown-menu{position: relative;
+top:-170px;
+opacity: 60%;}
+  }
+ .navbar{position: relative;
+  width: 100%;
+ } 
+  @media (min-width: 768px) and (max-width: 991px) {
+   }
+    /* Styles for medium screens */
+  
+  
+  @media (min-width: 992px) { .navbar{
+  width: 100%;}
+    /* Styles for large screens and above */
+  }
+  /* styles.css */
+
+body {
+  overflow-x: hidden;
+}

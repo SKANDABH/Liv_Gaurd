@@ -1,0 +1,113 @@
+/* Base styles for hero section */
+.hero {
+  position: relative;
+  width: 150vh;
+  height: 90vh;
+  display: flex;
+  margin: auto;
+  padding: 0px 8.75rem; /* Converted from 140px to rem */
+  margin-bottom: 9.375rem; /* Converted from 150px to rem */
+  top: 6.25rem; /* Converted from 100px to rem */
+  right: 1.25rem; /* Converted from 20px to rem */
+  background: linear-gradient(to right, pink 0%, white 60%);
+}
+
+.hero #imgbat {
+  position: relative;
+  height: 90vh;
+  width: 90vh;
+  left: 18.75rem; /* Converted from 300px to rem */
+}
+
+.hero .hero-left {
+  width: 62.5rem; /* Converted from 1000px to rem */
+}
+
+h1 {
+  position: relative;
+  font-size: 2.5rem; /* Converted from 40px to rem */
+  right: 3.5rem; /* Converted from 600px to rem */
+  top: -26.25rem; /* Converted from 100px to rem */
+}
+
+#herobtn {
+  position: relative;
+  top: -17.5rem; /* Converted from 280px to rem */
+  right: -4.5rem; /* Converted from 520px to rem */
+  width: 12.5rem; /* Converted from 200px to rem */
+  height: 2.5rem; /* Converted from 40px to rem */
+  border-radius: 0.625rem; /* Converted from 10px to rem */
+  font-size: 1.125rem; /* Converted from 18px to rem */
+  font-weight: 600;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#herobtn:hover {
+  background-image: linear-gradient(to right, #f3d2ee 0%, #e247d8 51%, #dd1dc3 100%);
+}
+
+/* Overlay styles */
+.signup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0.625rem); /* Converted from 10px to rem */
+  z-index: 2;
+}
+
+/* Body styles */
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .hero #imgbat {
+    width: 15.375rem; /* Converted from 950% to rem */
+    height: 24.5625rem; /* Converted from 25px to rem */
+    left: -20%;
+    top: 1.125rem; /* Converted from 50px to rem */
+  }
+
+  .hero .hero-left {
+    width: 1.875rem; /* Converted from 30px to rem */
+    left: 3.125rem; /* Converted from 50px to rem */
+  }
+
+  .hero .hero-right {
+    width: 3.125rem; /* Converted from 50px to rem */
+    left: 3.125rem; /* Converted from 50px to rem */
+  }
+
+  .hero-right h1 {
+    position: relative;
+    font-size: 1.4rem; /* Converted from 140% to rem */
+    top: -21.75rem; /* Converted from -300px to rem */
+    left: -7rem; /* Converted from -80px to rem */
+  }
+
+  #herobtn {
+    position:relative;
+    top: -13.625rem; /* Converted from -250px to rem */
+    right: 8rem; /* Converted from 130% to rem */
+    height: 1.8rem; /* Converted from 20px to rem */
+ font-size: 0.9rem;
+ width: 10rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Add styles for medium-sized screens if needed */
+}
+
+@media (min-width: 992px) {
+  /* Add styles for large screens if needed */
+}

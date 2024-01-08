@@ -1,0 +1,65 @@
+#para{position:relative;
+    font-size: 50px;
+align-items: center;
+left:26%;
+
+}
+#para1{position:relative;
+    font-size: 35px;
+align-items: center;
+left:33%;}
+.emailsub{ height: 90vh;
+    width:229vh;
+}
+.email input{position:relative;
+    top:60px;
+    height: 80px;
+    width: 600px;
+    font-size: 30px;
+align-items: center;
+border-radius: 10cm;
+left:30%;
+top:50px;}
+.btnemail{position: relative;
+    height: 50px;
+    width:160px;
+    border-radius: 10cm;
+    left: 31%;
+    top:58px;
+    font-size:20px;
+    background-color: rgb(196, 249, 232);
+    cursor: pointer;
+}
+.btnemail:hover{
+    background-color: aquamarine;
+}
+@media (max-width: 767px) {
+    
+ 
+    .emailsub{width: 100%;
+
+position: relative;background-repeat: no-repeat;
+        top:8rem;
+        
+    }
+    #para1{font-size: 80%;}
+    #para{font-size: 95%;}
+    .email input{height: 30px;
+    font-size: 18px;
+width: 200px;
+top: 3px;
+left: 50px;
+}.btnemail{position: relative;
+    height: 25px;font-size: 17px;width: 140px;}
+    
+     }
+     
+     @media (min-width: 768px) and (max-width: 991px) {
+      }
+       /* Styles for medium screens */
+     
+     
+     @media (min-width: 992px) { .navbar{
+     width: 100%;}
+       /* Styles for large screens and above */
+     }

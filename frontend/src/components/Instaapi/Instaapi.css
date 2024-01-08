@@ -1,0 +1,72 @@
+.Instaapi{
+    position:relative;
+    height: 120vh;
+    width:229vh;
+    background-image: linear-gradient(to right, #c7dff8 0%, #61a1f4 51%, #24a7f8 100%);
+}
+.Insta-data1{
+    
+    
+    height: 300px;
+    width: 350px;
+    position: relative;
+    top:80px;
+    left:80px;
+
+}
+.Insta-data2{
+    
+    height: 300px;
+    width: 350px;
+    position: absolute;
+    left:455px;
+    top: 80px;
+    
+
+}
+.Insta-data3{
+    
+    height: 300px;
+    width: 350px;
+    position: absolute;
+    top:80px;
+    left:830px;
+
+}
+.Instaapi h1{
+    font-size: 50px;
+    position: absolute;
+    top:0;
+    right:480px;
+}
+
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+    .Instaapi{height:360vh;
+    width: 100%;}
+
+    .Insta-data1,
+    .Insta-data2,
+    .Insta-data3 {
+        width: 100%; /* Make the elements full width on smaller screens */
+        position: relative;
+        left: 0px;
+        top: 90px;
+    }  .Insta-data3{
+        top: 620px;
+    }.Insta-data2{top: 350px;}
+    .Instaapi h1{font-size: 100%;
+    left: 10px;;
+top: 20px;}
+}
+  
+@media (min-width: 768px) and (max-width: 991px) {
+}
+ /* Styles for medium screens */
+
+
+@media (min-width: 992px) { 
+ /* Styles for large screens and above */
+}
