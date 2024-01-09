@@ -3,7 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import About from './pages/Abouts';
+import Abouts from './pages/Abouts';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import Products from './pages/Products';
@@ -20,7 +20,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/About" element={<Abouts />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Services" element={<Services />} />
           <Route path="/Login" element={<Login />} />
