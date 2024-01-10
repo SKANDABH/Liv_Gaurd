@@ -1,14 +1,14 @@
 /* Base styles for hero section */
 .hero {
   position: relative;
-  width: 150vh;
+  width: 60%;
   height: 90vh;
   display: flex;
   margin: auto;
   padding: 0px 8.75rem; /* Converted from 140px to rem */
   margin-bottom: 9.375rem; /* Converted from 150px to rem */
   top: 6.25rem; /* Converted from 100px to rem */
-  right: 1.25rem; /* Converted from 20px to rem */
+  right: 10%; /* Converted from 20px to rem */
   background: linear-gradient(to right, pink 0%, white 60%);
 }
 

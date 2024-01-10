@@ -2,8 +2,8 @@
     position: relative;
     margin: auto;
     overflow: hidden;
-    left: 70px;
-    width: 100%;
+    left: 5%;
+    width: auto;
     top:60px;
   }
   .carousel-wrapper1 {
@@ -69,9 +69,11 @@
   height: 23rem;
  left: 0;
   }
-  #sld1{width: 110% ;}
-  #sld2{width:100% ;} #sld3{width: 100%;}
-  #slide1,#slide2{height:30px;
+  #sld1{width:auto;}
+  #sld2{width:auto ;} 
+  #sld3{width: auto;}
+  #slide1,
+  #slide2{height:30px;
   }
   #slide1{right:110%}
   #slide2{left:50%}
