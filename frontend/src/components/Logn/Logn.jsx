@@ -40,7 +40,7 @@
 
         return (
             <div className="login">
-                <div className="container">
+                <div className="lcontainer">
                     <form onSubmit={handleSub}>
                         <h1>Login</h1>
                         <div className="inputbox">

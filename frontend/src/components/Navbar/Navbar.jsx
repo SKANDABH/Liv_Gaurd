@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import '../footer/Footer.css'
 import logo from '../assets/livguard logo.svg';
-import distr_logo from '../assets/SHREERAKSHA LOGO.png';
+// import distr_logo from '../assets/SHREERAKSHA LOGO.png';
 import cart_icon from '../assets/grocery-store.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,9 +14,9 @@ const Navbar = () => {
     <div className='navbar'> 
       <div className='navbar-logo'>
         <img src={logo} alt="" id="img1" />
-        <div className='logo-distr'>
+        {/* <div className='logo-distr'>
       <img src={distr_logo} alt="" id="imga" />
-      </div>
+      </div> */}
       </div>
      
       {/* <p className="name"><strong>SHREERAKSHA DISTRIBUTORS</strong></p> */}

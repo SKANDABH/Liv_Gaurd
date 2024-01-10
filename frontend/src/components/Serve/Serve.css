@@ -5,25 +5,29 @@
     background-color: rgb(45, 44, 44);
     margin: 0;
     padding-top: 80px;
+    position: relative;
+    top:2rem;
   }
- .SERbdy #h1 {position: relative;
+ .SERbdy h1 {position: relative;
     background-color: #ffffff;
     color: #333;
     padding: 10px;
     margin: 0;
     text-align: center;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
+    top: -6.9rem;
     left: 0;
     width: 100%;
     z-index: 999;
+    text-shadow: #333;
+    background: linear-gradient(to right,white, rgb(243, 154, 154));
+height: 60px;
   }
-  .main {
+  .main {position: relative;
     width: 500px;
     background: transparent;
     backdrop-filter: blur(30px);
-    position: relative;
+    top:-6.3rem;
     left:28%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     color: #fff;
@@ -84,20 +88,36 @@
     border-radius: 10px;
     text-align: center;
     margin-top: 20px;
+    position: relative;
   }
   .customer-care h2 {
     margin-top: 0;
+    position: relative;
+   top:-1.0rem;
+   right:0.5rem;
   }
   .customer-care p {
-    margin-bottom: 10px;
+    margin-bottom: 3px;
+    color: #ccc;
+    position: relative;
+    top:-0.7rem;
   }
-  .customer-care .contact-info {
+  .customer-care .ccontact-info {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 5px;
   }
-  .customer-care .contact-info img {
+  .customer-care .ccontact-info img {
     margin-right: 10px;
     border-radius: 50%;
+  }
+  .ccontact-info p{margin-bottom: -40px;
+    position: relative;
+    top:-2rem;
+  }
+  .ccontact-info {
+    height: 40px;
+    position: relative;
+    left:15%;
   }

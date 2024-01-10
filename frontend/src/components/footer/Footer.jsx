@@ -10,9 +10,6 @@ import instagram from '../assets/instagram.png'
 import linkedin from '../assets/linkedin.png'
 const Footer = () => {
   const [menu, setMenu] = useState("Home");
-
-
-
   return (
     <div className='footer'>
     <div className='footer-logo'> <img src={f_logo}alt=""></img>
@@ -20,10 +17,10 @@ const Footer = () => {
     <div className='quote'> <h2>LIVGUARD ENERGY TECHNOLOGIES<br/> PRIVATE LIMITED</h2></div>
     <div className='footer-links'>
         <ul>
-            <li onClick={() => setMenu("Home")}className={menu === "Home" ? "hovered" : ""}><Link to='/Home'>company</Link></li>
-            <li onClick={() => setMenu("Service")}className={menu === "Service" ? "hovered" : ""}><Link to='/Service'>Service</Link></li>
-            <li onClick={() => setMenu("Contact")}className={menu === "Contact" ? "hovered" : ""}><Link to='/Contact'>Contact</Link></li>
-            <li onClick={() => setMenu("About")}className={menu === "About  " ? "hovered" : ""}><Link to='/About-us'>About-us</Link></li>
+            <li onClick={() => setMenu("Home")}className={menu === "Home" ? "hovered" : ""}><Link to='/Home'id="FLink">company</Link></li>
+            <li onClick={() => setMenu("Service")}className={menu === "Service" ? "hovered" : ""}><Link to='/Service'id="FLink">Service</Link></li>
+            <li onClick={() => setMenu("Contact")}className={menu === "Contact" ? "hovered" : ""}><Link to='/Contact'id="FLink">Contact</Link></li>
+            <li onClick={() => setMenu("About")}className={menu === "About  " ? "hovered" : ""}><Link to='/About-us'id="FLink">About-us</Link></li>
         </ul>
     </div>
     <div className='footer-media'>

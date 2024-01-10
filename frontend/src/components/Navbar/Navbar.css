@@ -1,9 +1,10 @@
 .navbar{
  position: relative;
-    background-color: rgb(242, 38, 38);
-    border-radius: 40px;
+ 
+    background-color: rgb(255, 35, 2);
+    /* border-radius: 40px; */
     height: 50px;
-    top:45px;
+    top:0px;
 
 }
 .navbar-menu{
@@ -47,11 +48,14 @@
 
 
 .navbar-logo #img1{  position:absolute;
-    height: 40px;
-    width: 100px;
+    height: 3.7rem;
+    width: 10rem;
     margin-left:0px;
-    height: 5cm;
-  top:-120px;
+    border-radius: 60px;
+  top:-10px;
+  left: 30px;
+  z-index: 2;
+  background-color:gainsboro;
 }
 *{
     margin: 0;

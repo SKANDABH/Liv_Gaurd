@@ -6,7 +6,7 @@ function Contactus() {
         <div className="form-box">
             <h2>Contact Us</h2>
             <p>You will hear from us at the earliest!</p>
-            <form action="https://formspree.io/f/mpzgvnnj" method="POST">
+            <form action="https://formspree.io/f/mpzgvnnj" method="POST"id="Cform">
                 <div className="input-container">
                     <input type="text" placeholder="Full Name" name="name" id="name" required/>
                     <i className="fas fa-user"></i>
@@ -32,7 +32,7 @@ function Contactus() {
         <div className="contact-info">
             <h3>Address</h3>
             <p>Shop no 7 <b/>kadri commercial complex <br/>Mallikatta,Mangalore <br/>WhatsApp no:63632 31299 </p>
-            <h3>Email</h3>
+            <br/><br/> <h3>Email</h3>
             <p>livguard@gmail.com
                 <br/>shreeraksha.energy@gamil.com
             </p>

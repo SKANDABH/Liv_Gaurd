@@ -4,6 +4,7 @@ import Emailsub from '../components/emailsub/Emailsub';
 import Instaapi from '../components/Instaapi/Instaapi';
 import Faq from '../components/FAQ/Faq';
 import Carousel from '../components/Carousel/Carousel';
+import Footer from '../components/footer/Footer';
 const Home = () => {
   return (
     <div>
@@ -12,6 +13,8 @@ const Home = () => {
     <Instaapi/>
     <Emailsub/>
      <Faq/>
+     <Footer />
+     {/* menu={menu} setMenu={setMenu}  */}
     </div>
   )
 }

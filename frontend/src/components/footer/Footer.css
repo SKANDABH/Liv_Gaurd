@@ -1,10 +1,10 @@
 .footer {
-    position: absolute;
-    bottom: -164rem;
+    position: relative;
+    bottom:0%;
     height: 40vh;
     width: 100%;
     background-color: antiquewhite;
-    
+    margin-bottom:-3rem;
 }
 .footer-logo{
     height: 50px;
@@ -73,8 +73,10 @@ width: -40%;
         height: 50%;
         width:1.4rem
             
-}.footer-links li{margin: 5px;
-top:-60px;}
+}
+.footer-links #FLink{margin: 0px;
+position: relative;
+}
     .footer-copyright{position: relative;
     left:2rem;
 top: 3.0rem;

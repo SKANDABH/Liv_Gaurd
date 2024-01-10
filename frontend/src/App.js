@@ -1,6 +1,6 @@
 import React, { useState } from 'react';  // Added import for useState
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/footer/Footer';
+// import Footer from './components/footer/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Abouts from './pages/Abouts';
@@ -29,7 +29,7 @@ function App() {
           {/* <Route path=":ProductsId" element={<Products />} /> */}
           <Route path="/cart" element={<cart />} /> {/* Ensure cart component is correctly imported */}
         </Routes>
-        <Footer menu={menu} setMenu={setMenu} />
+        {/* <Footer menu={menu} setMenu={setMenu} /> */}
       </Router>
     </div>
   );
