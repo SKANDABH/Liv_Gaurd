@@ -12,7 +12,7 @@ const Emailsub = () => {
     let response;
     try {
       // Make a POST request to your backend endpoint
-      await axios.post('http://localhost:3000/subscribe', { email });
+      await axios.post('http://localhost:3005/subscribe', { email });
       console.log('Subscription successful!');
       if (response.status === 200) {
         console.log('Subscription successful!');
@@ -27,6 +27,7 @@ const Emailsub = () => {
     } catch (error) {
       console.error('Error subscribing:', error.message);
       alert('An error occurred. Please try again later.');
+      
     }
   };
 

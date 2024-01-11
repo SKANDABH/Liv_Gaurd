@@ -5,7 +5,24 @@ import imgb from "../assets/vision.jpg"
 import imgc from "../assets/mission.jpg"
 import imgd from "../assets/values.jpg"
 function About() {
+    const handleSub=()=>{
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read More";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+
+    };
   return (
+    
   <div className='bd'>
     
         <div className="Acontainer">
@@ -15,7 +32,7 @@ function About() {
                 <p id="dots"></p>
                 <p id="more" style={{display: 'none'}}>Our Mission<br/>
                     Livguard's mission is to provide cutting-edge energy solutions that are both reliable and sustainable. We aim to achieve this by continually innovating our products, fostering a culture of excellence, and ensuring customer satisfaction. Our goal is to contribute significantly to the global movement towards renewable and cleaner energy sources.</p>
-                <button className="cta-button"  id="myBtn">Read More</button>
+                <button className="cta-button"  onClick={handleSub} id="myBtn">Read More</button>
             </div>
             <div className="about-image">
                 <img id="uploadedImage" src={imga} alt="Uploaded Image"/>
@@ -35,7 +52,6 @@ function About() {
                 <img src={imgc} alt="Mission Image"/>
                 <h2 id="Ah2">Mission</h2>
                 <p>Livguard aims to revolutionize the energy sector by providing top-notch, eco-friendly energy storage solutions. Our mission is to lead the charge towards a greener, more sustainable future by delivering reliable, innovative, and affordable energy products.</p>
-                
             </div>
 
            

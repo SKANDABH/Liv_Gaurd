@@ -32,8 +32,8 @@ const Faq = () => {
 <h3>Got questions on your mind? Find your answers here</h3>
             
         </div>
-        <div className='faqs'>
-        <div className={`faq1 ${showDropdown1 ? 'open' : ''}`}  id="faqs">
+        <div className='faqs accordion'>
+        <div className={`faq1 ${showDropdown1 ? 'open' : ''}accordion-item`}  id="faqs">
             <h4>Which inverter battery is best for my use?</h4>
             <img id='dropic'onClick={toggleDropdown1}src={drpdwnicon} alt=""></img>
           

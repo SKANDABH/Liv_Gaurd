@@ -32,6 +32,7 @@
                 // TODO: Handle the response appropriately (e.g., show a message to the user)
               if(response.ok){
                 alert("Signup is sucess");
+                
                 window.location.href = '/login';
                 alert("Please login");
             }

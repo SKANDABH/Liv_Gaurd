@@ -39,10 +39,10 @@ const Serve = () => {
         <div className="customer-care">
           <h2>Customer Care</h2>
           <p>We're here to help! If you have any questions or need assistance, please don't hesitate to reach out to our customer care team.</p>
-          <div className="contact-info">
+          <div className="ccontact-info">
             <p id="serp">Phone: 123-456-7890</p>
           </div>
-          <div className="contact-info">
+          <div className="ccontact-info">
             <p id="serp">Email: info@example.com</p>
           </div>
         </div> 

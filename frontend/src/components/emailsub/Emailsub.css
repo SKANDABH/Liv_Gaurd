@@ -1,65 +1,84 @@
-#para{position:relative;
-    font-size: 50px;
-align-items: center;
-left:26%;
+#para {
+    position: relative;
+    font-size: 3rem; /* Adjusted font size */
+    text-align: center; /* Centered text */
+    left: 60%; /* Centered horizontally */
+    transform: translateX(-50%); /* Centered horizontally */
+}
 
+#para1 {
+    position: relative;
+    font-size: 2rem; /* Adjusted font size */
+    text-align: center; /* Centered text */
+    left: 50%; /* Centered horizontally */
+    transform: translateX(-50%); /* Centered horizontally */
 }
-#para1{position:relative;
-    font-size: 35px;
-align-items: center;
-left:33%;}
-.emailsub{ height: 90vh;
-    width:229vh;
+
+.emailsub {
+    height: auto; /* Adjusted height to 'auto' for responsiveness */
+    width: 100%; /* Full width on all screens */
+    background-repeat: no-repeat;
+    padding: 2rem; /* Added padding for better spacing */
+    height:30rem;
 }
-.email input{position:relative;
-    top:60px;
-    height: 80px;
-    width: 600px;
-    font-size: 30px;
-align-items: center;
-border-radius: 10cm;
-left:30%;
-top:50px;}
-.btnemail{position: relative;
-    height: 50px;
-    width:160px;
-    border-radius: 10cm;
-    left: 31%;
-    top:58px;
-    font-size:20px;
+
+.email input {
+    position: relative;
+    height: 49px; /* Adjusted height */
+    width: 32rem; /* Adjusted width to 80% of the parent container */
+    font-size: 1.5rem; /* Adjusted font size */
+    padding-left: 15px;
+    border-radius: 1cm;
+    margin: 0 auto; /* Centered horizontally */
+    display: block; /* Ensures the input is a block element */
+    left: 2.4rem;
+}
+
+.btnemail {
+    position: relative;
+    height: 30px; /* Adjusted height */
+    width: 7rem; /* Adjusted width to 50% of the parent container */
+    border-radius: 1cm;
+    font-size: 1.0rem; /* Adjusted font size */
     background-color: rgb(196, 249, 232);
     cursor: pointer;
+    margin: 1rem auto; /* Centered horizontally with some margin */
+    left:57rem;
+    top:-3.5rem
 }
-.btnemail:hover{
+
+.btnemail:hover {
     background-color: aquamarine;
 }
-@media (max-width: 767px) {
-    
- 
-    .emailsub{width: 100%;
 
-position: relative;background-repeat: no-repeat;
-        top:8rem;
-        
+@media (max-width: 767px) {
+    #para,
+    #para1 {
+        font-size: 50%;
+        position: relative;
+        top:-1.4rem; 
+        left:7rem;
     }
-    #para1{font-size: 80%;}
-    #para{font-size: 95%;}
-    .email input{height: 30px;
-    font-size: 18px;
-width: 200px;
-top: 3px;
-left: 50px;
-}.btnemail{position: relative;
-    height: 25px;font-size: 17px;width: 140px;}
-    
-     }
-     
-     @media (min-width: 768px) and (max-width: 991px) {
-      }
-       /* Styles for medium screens */
-     
-     
-     @media (min-width: 992px) { .navbar{
-     width: 100%;}
-       /* Styles for large screens and above */
-     }
+    .emailsub {
+        position: relative;
+        top:5rem;
+    }
+
+    .email input {
+        height: 1.7rem;
+        position: relative;
+        top:-3.5rem;
+        left:2rem;
+        font-size: 70%; /* Reduced font size for small screens */
+        width: 70%; /* Full width on small screens */
+    }
+
+    .btnemail {
+        height: 25px;
+        font-size:50%; /* Reduced font size for small screens */
+        width: 30%; 
+        position: relative;
+        top:-4rem;
+        left:8rem;
+    }
+}
