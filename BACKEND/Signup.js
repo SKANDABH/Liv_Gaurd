@@ -9,9 +9,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/Signup", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+// mongoose.connect("mongodb://127.0.0.1:27017/Signup", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+mongoose.connect("mongodb+srv://skandabhebbar:CQpZCe1HrcIWcMLH@cluster0.vcimiqn.mongodb.net/?retryWrites=true&w=majority")
+.then(() => {
+    console.log('Connected to MongoDB');
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
 });
 
 const userSchema = new mongoose.Schema({
@@ -63,8 +70,9 @@ app.post('/login', async (req, res) => {
             const token = jwt.sign({ userId: user._id }, 'your_secret_key_here', { expiresIn: '1h' });
             return res.json({ message: 'Login successful', token });
         } else {
-            return res.status(400).json({ message: 'Incorrect password' });
+            return res.status(401).json({ message: 'user email not exist' });
         }
+
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -84,6 +92,7 @@ const verifyToken = (req, res, next) => {
         return res.status(401).json({ message: 'Invalid token' });
     }
 };
+
 
 // Example protected route
 app.get('/protected', verifyToken, (req, res) => {

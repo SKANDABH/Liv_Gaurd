@@ -80,7 +80,7 @@ ul{
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: rgb(255, 255, 255,0.2);
+    background-color:white;
     margin: 0 10px 10px 0;
     text-align: center;
     line-height: 40px;
@@ -89,12 +89,18 @@ ul{
     transition: all 0.5s ease;
 
 }
+.footer-col .social-links img{height: 2rem;
+
+}
+.footer-col .social-links img:hover{background-color: white;
+}
+
 .footer-col .social-links{
     color: #ffffff;
 }
 .footer-col .social-links a:hover{
     color: #24262b;
-    background-color: #ffffff;
+    background-color: black;
 }
 .footer-col .social-links p{
     color: #ffffff;

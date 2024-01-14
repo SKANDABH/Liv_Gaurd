@@ -47,10 +47,10 @@ const Footer = () => {
                 <div class="footer-col">
                     <h4>Follow us</h4>
                     <div class="social-links">
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+<a href="https://twitter.com/LivguardEnergy"target="_blank"rel="noopener noreferrer"><i class="fab fa-facebook-f"/><img src={twitter}alt=""></img></a>
+ <a href="https://www.facebook.com/LivguardEnergy"target="_blank"rel="noopener noreferrer"><i class="fab fa-twitter"/> <img src={social}alt=""></img></a>
+ <a href="https://www.instagram.com/livguardenergy"target="_blank"rel="noopener noreferrer"><i class="fab fa-instagram"></i><img src={instagram}alt=""></img></a>
+ <a href="https://www.linkedin.com/company/livguard-energy"target="_blank"rel="noopener noreferrer"><i class="fab fa-linkedin-in"/><img src={linkedin}alt=""></img></a>
                         <p>
                             SHREERAKSHA DISTRIBUTORS
                             <br/>

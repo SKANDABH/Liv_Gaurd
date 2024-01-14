@@ -1,6 +1,34 @@
 import React from 'react'
 import './Serve.css'
 const Serve = () => {
+  const handles= async (e)=>{
+    e.preventDefault();
+    var formData = new FormData(this);
+      var data = {};
+      for (var pair of formData.entries()) {
+        if (data[pair[0]]) {
+          if (!Array.isArray(data[pair[0]])) {
+            data[pair[0]] = [data[pair[0]]];
+          }
+          data[pair[0]].push(pair[1]);
+        } else {
+          data[pair[0]] = pair[1];
+        }
+      }
+      
+      // Display captured data to the user
+      var message = "Form data:\n";
+      for (var key in data) {
+        if (Array.isArray(data[key])) {
+          message += key + ": " + data[key].join(', ') + "\n";
+        } else {
+          message += key + ": " + data[key] + "\n";
+        }
+      }
+      alert(message);
+      this.reset();
+
+  }
   return ( 
  <div className='SERbdy'><h1 id="h1">Service Request Form</h1>
     <div className="main">
@@ -33,7 +61,7 @@ const Serve = () => {
             <label><input type="checkbox" name="indicators[]" value="Faulty Display"/> Faulty Display</label>
           </div>
           
-          <button type="submit" id="btns">Submit</button>
+          <button type="submit" id="btns" href={handles}>Submit</button>
         </form>
         
         <div className="customer-care">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import '../footer/Footer.css'
 import logo from '../assets/livguard logo.svg';
@@ -7,13 +7,17 @@ import logo from '../assets/livguard logo.svg';
 import cart_icon from '../assets/grocery-store.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Navbar = () => {
+const Navbar = () => { const navigate = useNavigate();
   const [menu, setMenu] = useState("Home");
-
+  const handle = async (e) => {
+    e.preventDefault();
+    setMenu("Home");
+    navigate('/');
+  }
   return (
     <div className='navbar'> 
       <div className='navbar-logo'>
-        <img src={logo} alt="" id="img1" />
+        <img src={logo} alt="" id="img1" onClick={handle}/>
         {/* <div className='logo-distr'>
       <img src={distr_logo} alt="" id="imga" />
       </div> */}

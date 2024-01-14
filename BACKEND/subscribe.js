@@ -4,13 +4,20 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-const port = 3005;
+const port = 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1/subscribe', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+// mongoose.connect('mongodb://127.0.0.1/subscribe', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+mongoose.connect("mongodb+srv://skandabhebbar:CQpZCe1HrcIWcMLH@cluster0.vcimiqn.mongodb.net/?retryWrites=true&w=majority")
+.then(() => {
+    console.log('Connected to MongoDB');
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
 });
 
 const subscriptionSchema = new mongoose.Schema({
@@ -27,15 +34,16 @@ app.post('/subscribe', async (req, res) => {
     const existingSubscription = await Subscription.findOne({ email });
 
     if (existingSubscription) {
-      res.status(409).json({ error: 'Already subscribed' });
-        console.log("You are already subscribed to our channel.");
-    } else {
+      console.log("You are already subscribed to our channel.");
+     return res.status(409).json({ error: 'Already subscribed' });
+        
+    } 
         // Save the email to the database
         const subscription = new Subscription({ email });
         await subscription.save();
         console.log("Saved successfully in the database.");
-        res.status(200).json({ message: 'Subscription successful!', email });
-    }
+      
+            
     const transporter = nodemailer.createTransport({
       // Specify your email service provider's configuration here
       service: 'gmail',
@@ -54,15 +62,16 @@ app.post('/subscribe', async (req, res) => {
 
     await transporter.sendMail(mailOptions);
     console.log('Email sent: Subscription confirmation');
+    res.status(200).json({ message: 'Subscription successful!', email });
 
     // Send a response to the client
-    res.status(200).json({ message: 'Subscription successful!', email })
+
 } catch (error) {
     if (error.code === 11000) {
         // Duplicate key error (email already exists)
         res.status(409).json({ error: 'Already subscribed' });
-        console.log("You are already subscribed to our channel.");
-    } else {
+        console.log("You are already subscribed to our channel.");}
+        else {
       console.error('Error sending confirmation email:', error.message);
       res.status(500).json({ error: 'Internal Server Error' });
     }

@@ -32,7 +32,8 @@
                
                if(response.ok) {alert("Login successful");
             window.location.href="/"}    
-               else{alert("user email not exist");} 
+               else if(response.status===400){alert("user email not exist");} 
+               else {alert("Incorrect password");} 
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -66,3 +67,4 @@
     }
 
     export default Logn;
+ 
