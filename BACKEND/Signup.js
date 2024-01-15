@@ -94,14 +94,37 @@ catch (error) {
 }
 
 });
-app.post('/VerifyOtp',async(req,res)=>{
-    console.log("entered");
-    const {otp}=req.body;
-    if(OTP==otp){ console.log("entered");
-    return res.status(100).json({ message: 'User found' });
+app.post('/VerifyOtp', async (req, res) => {
+    console.log("Entered VerifyOtp endpoint");
+    const { otp } = req.body;
+    console.log("Received OTP:", otp);
+    if (OTP == otp) {
+        console.log("OTP Matched");
+        return res.status(200).json({ message: 'User found' });
+    } else {
+        console.log("Invalid OTP");
+        return res.status(401).json({ message: 'Invalid OTP' });
     }
-})
+});
 
+app.post('/Resetpass',async(req,res)=>{
+    try{console.log("entered resetpass");
+        const { newPassword, confirmPassword, email } = req.body;
+        const user = await User.findOne({ email });
+        if (newPassword !== confirmPassword) {
+            return res.status(400).json({ message: 'New password and confirm password do not match' });
+          }
+          const hashedPassword = await bcrypt.hash(newPassword, 10);
+          await User.updateOne({ email }, { password: hashedPassword });
+
+          return res.status(200).json({ message: 'Password reset successful' });
+          //here i want to change old passwor with new password
+
+    }
+    catch{
+
+    }
+});
 // Login endpoint
 app.post('/login', async (req, res) => {
     try {
