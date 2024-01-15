@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import Products from './pages/Products';
 import Login from './pages/Login';
 import Sign from './pages/Sign';
+import ForgotPass from './pages/ForgotPass';
 
 function App() {
   // Assuming you need to manage a menu state
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/Signup" element={<Sign />} />
+          <Route path="/Forgotpassword" element={<ForgotPass />} />
           {/* <Route path=":ProductsId" element={<Products />} /> */}
           <Route path="/cart" element={<cart />} /> {/* Ensure cart component is correctly imported */}
         </Routes>

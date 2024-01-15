@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const nodemailer = require('nodemailer');
 const mongoose = require("mongoose");
 const cors = require('cors');
 const bcrypt = require('bcrypt'); // For hashing passwords
@@ -52,6 +53,54 @@ app.post('/Signup', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+let OTP = Math.floor(10000 + Math.random() * 90000);
+app.post('/Forgotpassword',async(req,res)=>{
+try{
+    const {email}=req.body;
+    const user = await User.findOne({ email });
+        if (!user) {
+           return res.status(400).json({ message: 'User not found' });
+        }
+        else{
+
+            
+            console.log(OTP);
+            const transporter = nodemailer.createTransport({
+                // Specify your email service provider's configuration here
+                service: 'gmail',
+                auth: {
+                  user: 'skandabhebbar@gmail.com',
+                  pass: 'krcs mils vsam lglj',
+                },
+              });
+          
+              const mailOptions = {
+                from: 'skandahebbar@gmail.com',
+                to: email,
+                subject: 'RESET PASSWORD',
+                text: `VERIFICASTION OTP:${OTP}`,
+              };
+          
+              await transporter.sendMail(mailOptions);
+              console.log('Email sent: OTP confirmation');
+
+        return res.status(200).json({ message: 'User found' });
+
+        }
+}
+catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+}
+
+});
+app.post('/VerifyOtp',async(req,res)=>{
+    console.log("entered");
+    const {otp}=req.body;
+    if(OTP==otp){ console.log("entered");
+    return res.status(100).json({ message: 'User found' });
+    }
+})
 
 // Login endpoint
 app.post('/login', async (req, res) => {

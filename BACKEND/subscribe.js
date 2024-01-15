@@ -36,7 +36,6 @@ app.post('/subscribe', async (req, res) => {
     if (existingSubscription) {
       console.log("You are already subscribed to our channel.");
      return res.status(409).json({ error: 'Already subscribed' });
-        
     } 
         // Save the email to the database
         const subscription = new Subscription({ email });
