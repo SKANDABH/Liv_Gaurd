@@ -14,22 +14,22 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  h2 {
+  .forgot-password-form h2 {
     text-align: center;
     color: #333;
   }
   
-  form {
+  .forgot-password-form form {
     display: flex;
     flex-direction: column;
   }
   
-  label {
+  .forgot-password-form form label {
     margin-bottom: 6px;
     color: #333;
   }
   
-  input {
+  .forgot-password-form form input {
     height: 40px;
     padding: 8px;
     margin-bottom: 16px;
@@ -38,7 +38,7 @@
     font-size: 14px;
   }
   
-  button {
+  .forgot-password-form form button {
     background-color: #007bff;
     color: #fff;
     padding: 10px;
@@ -48,8 +48,8 @@
     font-size: 16px;
   }
   
-  button:hover {
-    background-color: #0056b3;
+  .forgot-password-form form button:hover {
+    background-color: #141b21;
   }
   
   .message {
