@@ -29,12 +29,12 @@ const Product = () => {
   //   });
   // }, []);
 
-  // const scrollToSection = (sectionId) => {
-  //   const section = document.getElementById(sectionId);
-  //   if (section) {
-  //     section.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="pcontainer">
@@ -56,7 +56,7 @@ const Product = () => {
           <h2>LGS900</h2>
           <p className="description">Sine wave Inverter | 900 VA Capacity | 3 years Warranty</p>
           <p className="price">$199.99</p>
-          <a href="#" className="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product1")} className="explore-btn">Explore</a>
         </div>
       </div>
       <div className="product-card" id="inverters">
@@ -67,7 +67,8 @@ const Product = () => {
           <h2>LGS1100</h2>
           <p className="description">Sine wave Inverter | 1100 VA Capacity | 3 years Warranty</p>
           <p className="price">$199.99</p>
-          <a href="#" className="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product2")} className="explore-btn">Explore</a>
+
         </div>
       </div>
       <div className="product-card" id="inverters">
@@ -78,7 +79,8 @@ const Product = () => {
           <h2>LGS1600</h2>
           <p className="description">Sine wave Inverter | 1600 VA Capacity | 3 years Warranty</p>
           <p className="price">$199.99</p>
-          <a href="#" className="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product3")} className="explore-btn">Explore</a>
+
         </div>
       </div>
       <div className="product-card" id="inverters">
@@ -89,7 +91,8 @@ const Product = () => {
           <h2>LG1000I</h2>
           <p className="description">Square wave Inverter | 1000 VA Capacity | 3 years Warranty</p>
           <p className="price">$199.99</p>
-          <a href="#" className="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product4")} className="explore-btn">Explore</a>
+
         </div>
       </div>
       
@@ -189,7 +192,7 @@ const Product = () => {
 
 </div>
 <div className="z-scroll-container">
-  <section id="product1" className="full-height-width about-z-scroll-info">
+  <section id="product1" className="full-height-width about-z-scroll-info"style={{height:"45rem"}}>
   <div className="container bootdey">
         <section className="panel">
             <div className="panel-heading">
@@ -246,7 +249,7 @@ const Product = () => {
     </div>
   </section>
   
-   <section id="product2" className="full-height-width third-z-scroll-info">
+   <section id="product2" className="full-height-width third-z-scroll-info"style={{height:"45rem"}}>
    <div className="container bootdey">
         <section className="panel">
             <div className="panel-heading">
@@ -302,7 +305,7 @@ const Product = () => {
       
     </div>
   </section>
-    <section id="product3" className="full-height-width fourth-z-scroll-info">
+    <section id="product3" className="full-height-width fourth-z-scroll-info" style={{height:"45rem"}}>
     <div className="container bootdey">
         <section className="panel">
             <div className="panel-heading">
@@ -358,7 +361,7 @@ const Product = () => {
       
     </div>
     </section>
-    <section id="" className="full-height-width about-z-scroll-info">
+    <section id="product4" className="full-height-width about-z-scroll-info"style={{height:"45rem"}}>
     <div className="container bootdey">
         <section className="panel">
             <div className="panel-heading">

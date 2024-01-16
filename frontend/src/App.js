@@ -15,12 +15,20 @@ const isAuthenticated = () => {
   const token = Cookies.get('token');
   return token ? true : false;
 };
+const showMessageAndNavigate = (path) => {
+  window.alert('You need to log in to access this page.');
+  return <Navigate to="/login" state={{ from: path }} />
+  
+
+};
+
 
 const ProtectedRoute = ({ element, path }) => {
   return isAuthenticated() ? (
     element
   ) : (
-    <Navigate to="/login" state={{ from: path }} />
+    showMessageAndNavigate(path)
+    
   );
 };
 

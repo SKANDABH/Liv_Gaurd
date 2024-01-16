@@ -1,14 +1,15 @@
 import React from 'react'
 import Product from '../components/Product/Product'
 import Footer from '../components/footer/Footer';
-import Carousel from '../components/Carousel/Carousel';
+import CarouselP from '../components/CarouselP/CarouselP';
 
 
 
 const products = () => {
   return (
     <div>
-      <Carousel/>
+      <CarouselP/>
+      <br/><br/>
       <Product />
     <Footer/></div>
   )
