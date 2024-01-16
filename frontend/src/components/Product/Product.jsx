@@ -4,6 +4,7 @@ import './Product.css';
 // import "slick-carousel/slick/slick-theme.css";
 // import $ from 'jquery';
 // import "slick-carousel";
+import { useState } from 'react';
 import img1 from '../assets/LGS900VA.webp';
 import img2 from '../assets/LGS1100VA.webp';
 import img3 from '../assets/LGS1500VA.webp';
@@ -18,6 +19,21 @@ import img11 from '../assets/LS16560TT.webp';
 import img12 from '../assets/400WMSOLAR.webp';
 const Product = () => {
 
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    phone: '',
+    address: '',
+  });
+
+  const [showForm, setShowForm] = useState(false);
+
+  const placeOrder = async (productId) => {setShowForm(true);
+    // Check if user information is complete before placing the order
+    if (!userInfo.name || !userInfo.phone || !userInfo.address) {
+      alert('Please fill in all the required fields end of the page');
+      return;
+    }
+  }
   // useEffect(() => {
   //   $('#containerSlider').slick({
   //     dots: true,
@@ -47,6 +63,7 @@ const Product = () => {
   </div>
 
   <div className="products">
+  
    
     <div className="product-card" id="inverters">
         <div className="product-image">
@@ -294,7 +311,7 @@ const Product = () => {
                         <button className="btn btn-danger" type="button">
                             <i className="fa fa-shopping-cart"></i> Add to Cart
                         </button>
-                        <button className="btn btn-danger mx-2" type="button">
+                        <button className="btn btn-danger mx-2" type="button"onClick={placeOrder}>
                             <i className="fa fa-shopping-cart"></i> Buy Now
                         </button>
                     </p>
@@ -350,7 +367,7 @@ const Product = () => {
                         <button className="btn btn-danger" type="button">
                             <i className="fa fa-shopping-cart"></i> Add to Cart
                         </button>
-                        <button className="btn btn-danger mx-2" type="button">
+                        <button className="btn btn-danger mx-2" type="button" onClick={placeOrder}>
                             <i className="fa fa-shopping-cart"></i> Buy Now
                         </button>
                     </p>
@@ -406,7 +423,7 @@ const Product = () => {
                         <button className="btn btn-danger" type="button">
                             <i className="fa fa-shopping-cart"></i> Add to Cart
                         </button>
-                        <button className="btn btn-danger mx-2" type="button">
+                        <button className="btn btn-danger mx-2" type="button" onClick={placeOrder}>
                             <i className="fa fa-shopping-cart"></i> Buy Now
                         </button>
                     </p>
@@ -430,7 +447,42 @@ const Product = () => {
     <section id="" className="full-height-width fourth-z-scroll-info">
 
     </section>
-    
+  
+    <div>{showForm && (
+        <div className="order-form">
+          <h2>Enter Your Details</h2>
+          <form>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={userInfo.name}
+                onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
+              />
+            </label>
+            <label>
+              Phone:
+              <input
+                type="text"
+                value={userInfo.phone}
+                onChange={(e) => setUserInfo({ ...userInfo, phone: e.target.value })}
+              />
+            </label>
+            <label>
+              Address:
+              <input
+                type="text"
+                value={userInfo.address}
+                onChange={(e) => setUserInfo({ ...userInfo, address: e.target.value })}
+              />
+            </label>
+            <button type="button" onClick={() => placeOrder('productId')}>
+              Place Order
+            </button>
+          </form>
+        </div>
+      )}</div>
 </div></div>
   );}
+                  
   export default Product;
