@@ -61,7 +61,7 @@ const Forgotpassword = () => {
           alert("Password reset successful");
           window.location.href="/login";
         }
-      else if(response.status==400){
+      else if(response.status===400){
         alert("New-Password and Confirmed-Password not matching")
         setNewPassword('');
         setConfirmPassword('');
