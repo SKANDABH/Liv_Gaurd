@@ -32,7 +32,8 @@ const Productsl = () => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.parentElement.scrollIntoView({ behavior: "smooth" });
+
     }
   };
 
@@ -56,7 +57,8 @@ const Productsl = () => {
           <h2>LGS900</h2>
           <p class="description">Sine wave Inverter | 900 VA Capacity | 3 years Warranty</p>
           <p class="price">$199.99</p>
-          <a href="#" class="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product1")} class="explore-btn">Explore</a>
+
         </div>
       </div>
       <div class="product-card" id="inverters">
@@ -67,7 +69,7 @@ const Productsl = () => {
           <h2>LGS1100</h2>
           <p class="description">Sine wave Inverter | 1100 VA Capacity | 3 years Warranty</p>
           <p class="price">$199.99</p>
-          <a href="#" class="explore-btn">Explore</a>
+          <a nClick={() => scrollToSection("product2")} class="explore-btn">Explore</a>
         </div>
       </div>
       <div class="product-card" id="inverters">
@@ -78,7 +80,8 @@ const Productsl = () => {
           <h2>LGS1600</h2>
           <p class="description">Sine wave Inverter | 1600 VA Capacity | 3 years Warranty</p>
           <p class="price">$199.99</p>
-          <a href="#" class="explore-btn">Explore</a>
+          <a onClick={() => scrollToSection("product3")} class="explore-btn">Explore</a>
+
         </div>
       </div>
       <div class="product-card" id="inverters">
@@ -189,33 +192,18 @@ const Productsl = () => {
 
 </div>
 <div class="z-scroll-container">
-  <section id="product1" class="full-height-width about-z-scroll-info">
-
-  </section>
-   <section id="product2" class="full-height-width third-z-scroll-info">
-  </section>
-    <section id="product3" class="full-height-width fourth-z-scroll-info">
-
-    </section>
-    <section id="" class="full-height-width about-z-scroll-info">
-
-  </section>
-   <section id="" class="full-height-width third-z-scroll-info">
-  </section>
-    <section id="" class="full-height-width fourth-z-scroll-info">
-
-    </section>
-    <section id="" class="full-height-width about-z-scroll-info">
-
-  </section>
-   <section id="" class="full-height-width third-z-scroll-info">
-  </section>
-    <section id="" class="full-height-width fourth-z-scroll-info">
-
-    </section>
-    
-</div></div>
+  <section id="" class="full-height-width about-z-scroll-info"></section>
+  <section id="" class="full-height-width third-z-scroll-info"></section>
+  <section id="" class="full-height-width fourth-z-scroll-info"></section>
+  <section id="product1" class="full-height-width about-z-scroll-info"></section>
+  <section id="product2" class="full-height-width third-z-scroll-info"></section>
+  <section id="product3" class="full-height-width fourth-z-scroll-info"></section>
+  <section id="" class="full-height-width about-z-scroll-info"></section>
+  <section id="" class="full-height-width third-z-scroll-info"></section>
+  <section id="" class="full-height-width fourth-z-scroll-info"></section>
+</div>
+</div>
   );}
-  
+    
 
 export default Productsl;

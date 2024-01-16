@@ -3,30 +3,22 @@ const bodyParser = require("body-parser");
 const nodemailer = require('nodemailer');
 const mongoose = require("mongoose");
 const cors = require('cors');
-require('dotenv').config();
+const dotenv = require('dotenv');
 const cookieParser = require("cookie-parser");
-const bcrypt = require('bcrypt'); // For hashing passwords
-const jwt = require('jsonwebtoken'); // For JWT
-// const admin = require("firebase-admin");
-// const serviceAccount = require("./firebaseServiceAccountKey.json");
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount),
-// });
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
+dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
 
-// mongoose.connect("mongodb://127.0.0.1:27017/Signup", 
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -37,25 +29,17 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Register endpoint
+// Signup endpoint
 app.post('/Signup', async (req, res) => {
     try {
         const { username, email, phone, password } = req.body;
         const existingUser = await User.findOne({ email });
-        // const existingUserInFirebase = await admin.auth().getUserByEmail(email);
+
         if (existingUser) {
             return res.status(400).json({ message: 'Email already in use' });
-            
-        } 
-        // const userRecord = await admin.auth().createUser({
-        //     email,
-        //     password,
-        // });
-        // await userRecord.save();
+        }
 
-        // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
-
         const newUser = new User({ username, email, phone, password: hashedPassword });
         await newUser.save();
 
@@ -65,76 +49,7 @@ app.post('/Signup', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
-let OTP = Math.floor(10000 + Math.random() * 90000);
-app.post('/Forgotpassword',async(req,res)=>{
-try{
-    const {email}=req.body;
-    const user = await User.findOne({ email });
-        if (!user) {
-           return res.status(400).json({ message: 'User not found' });
-        }
-        else{
 
-            
-            console.log(OTP);
-            const transporter = nodemailer.createTransport({
-                service: process.env.EMAIL_SERVICE,
-                auth: {
-                    user: process.env.EMAIL_USER,
-                    pass: process.env.EMAIL_PASSWORD,
-                },
-            });
-          
-            const mailOptions = {
-                from: process.env.EMAIL_USER, // Use the same sender email as configured in the transporter
-                to: email,
-                subject: 'RESET PASSWORD',
-                text: `VERIFICATION OTP: ${OTP}`,
-            };
-              await transporter.sendMail(mailOptions);
-              console.log('Email sent: OTP confirmation');
-
-        return res.status(200).json({ message: 'User found' });
-
-        }
-}
-catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
-}
-
-});
-app.post('/VerifyOtp', async (req, res) => {
-    console.log("Entered VerifyOtp endpoint");
-    const { otp } = req.body;
-    console.log("Received OTP:", otp);
-    if (OTP == otp) {
-        console.log("OTP Matched");
-        return res.status(200).json({ message: 'User found' });
-    } else {
-        console.log("Invalid OTP");
-        return res.status(401).json({ message: 'Invalid OTP' });
-    }
-});
-
-app.post('/Resetpass',async(req,res)=>{
-    try{console.log("entered resetpass");
-        const { newPassword, confirmPassword, email } = req.body;
-        const user = await User.findOne({ email });
-        if (newPassword !== confirmPassword) {
-            return res.status(400).json({ message: 'New password and confirm password do not match' });
-          }
-          const hashedPassword = await bcrypt.hash(newPassword, 10);
-          await User.updateOne({ email }, { password: hashedPassword });
-
-          return res.status(200).json({ message: 'Password reset successful' });
-          //here i want to change old passwor with new password
-
-    }
-    catch{
-
-    }
-});
 // Login endpoint
 app.post('/login', async (req, res) => {
     try {
@@ -145,23 +60,14 @@ app.post('/login', async (req, res) => {
             return res.status(400).json({ message: 'User not found' });
         }
 
-        // Verify hashed password
         const isMatch = await bcrypt.compare(password, user.password);
         if (isMatch) {
-            // Generate JWT
-            const token = jwt.sign({ userId: user._id }, 'your_secret_key_here', { expiresIn: '1h' });
+            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
             res.cookie('token', token, { httpOnly: true });
-        return res.json({ message: 'Login successful', token });
-          
+            return res.json({ message: 'Login successful', token });
         } else {
-            return res.status(401).json({ message: 'user email not exist' });
-        } 
-        
-
-        // Set the token as a cookie
-        res.cookie('token', token, { httpOnly: true });
-        return res.json({ message: 'Login successful', token });
-
+            return res.status(401).json({ message: 'Incorrect password' });
+        }
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -170,11 +76,11 @@ app.post('/login', async (req, res) => {
 
 // Middleware to verify JWT
 const verifyToken = (req, res, next) => {
-    const token = req.headers['authorization'];
+    const token = req.cookies.token;
     if (!token) return res.status(401).json({ message: 'Unauthorized' });
 
     try {
-        const decoded = jwt.verify(token, 'your_secret_key_here');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.userId = decoded.userId;
         next();
     } catch (error) {
@@ -182,13 +88,14 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-
-// Example protected route
+// Protected route example
 app.get('/protected', verifyToken, (req, res) => {
     res.json({ message: 'Protected route', userId: req.userId });
 });
 
-const PORT = 3000;
+// Your other routes and middleware go here...
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

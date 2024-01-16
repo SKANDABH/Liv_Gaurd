@@ -50,7 +50,7 @@
                     <form onSubmit={handleSub}>
                         <h1>Login</h1>
                         <div className="inputbox">
-                            <input type="text" placeholder="Username" name="username" required />
+                            <input type="text" placeholder="Email id" name="username" required />
                             <i className='bx bxs-user-circle'></i>
                         </div>
                         <div className="inputbox">
