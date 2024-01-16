@@ -6,18 +6,16 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3001;
 app.use(cors());
+require('dotenv').config();
 app.use(bodyParser.json());
 
 // mongoose.connect('mongodb://127.0.0.1/subscribe', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-mongoose.connect("mongodb+srv://skandabhebbar:CQpZCe1HrcIWcMLH@cluster0.vcimiqn.mongodb.net/?retryWrites=true&w=majority")
-.then(() => {
-    console.log('Connected to MongoDB');
-})
-.catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 const subscriptionSchema = new mongoose.Schema({
@@ -43,17 +41,15 @@ app.post('/subscribe', async (req, res) => {
         console.log("Saved successfully in the database.");
       
             
-    const transporter = nodemailer.createTransport({
-      // Specify your email service provider's configuration here
-      service: 'gmail',
-      auth: {
-        user: 'skandabhebbar@gmail.com',
-        pass: 'krcs mils vsam lglj',
-      },
-    });
-
-    const mailOptions = {
-      from: 'skandahebbar@gmail.com',
+        const transporter = nodemailer.createTransport({
+          service: process.env.EMAIL_SERVICE,
+          auth: {
+              user: process.env.EMAIL_USER,
+              pass: process.env.EMAIL_PASSWORD,
+          },
+      });
+      const mailOptions = {
+        from: process.env.EMAIL_USER, // Use the same sender email as configured in the transporter
       to: email,
       subject: 'Subscription Confirmation',
       text: 'Thank you for subscribing to our company!',
