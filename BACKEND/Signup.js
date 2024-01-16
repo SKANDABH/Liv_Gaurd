@@ -3,8 +3,16 @@ const bodyParser = require("body-parser");
 const nodemailer = require('nodemailer');
 const mongoose = require("mongoose");
 const cors = require('cors');
+require('dotenv').config();
+const cookieParser = require("cookie-parser");
 const bcrypt = require('bcrypt'); // For hashing passwords
 const jwt = require('jsonwebtoken'); // For JWT
+// const admin = require("firebase-admin");
+// const serviceAccount = require("./firebaseServiceAccountKey.json");
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+// });
+
 
 const app = express();
 app.use(cors());
@@ -14,13 +22,11 @@ app.use(bodyParser.json());
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
 // });
-mongoose.connect("mongodb+srv://skandabhebbar:CQpZCe1HrcIWcMLH@cluster0.vcimiqn.mongodb.net/?retryWrites=true&w=majority")
-.then(() => {
-    console.log('Connected to MongoDB');
-})
-.catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
+
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -36,10 +42,16 @@ app.post('/Signup', async (req, res) => {
     try {
         const { username, email, phone, password } = req.body;
         const existingUser = await User.findOne({ email });
+        // const existingUserInFirebase = await admin.auth().getUserByEmail(email);
         if (existingUser) {
             return res.status(400).json({ message: 'Email already in use' });
             
-        }
+        } 
+        // const userRecord = await admin.auth().createUser({
+        //     email,
+        //     password,
+        // });
+        // await userRecord.save();
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -66,21 +78,19 @@ try{
             
             console.log(OTP);
             const transporter = nodemailer.createTransport({
-                // Specify your email service provider's configuration here
-                service: 'gmail',
+                service: process.env.EMAIL_SERVICE,
                 auth: {
-                  user: 'skandabhebbar@gmail.com',
-                  pass: 'krcs mils vsam lglj',
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASSWORD,
                 },
-              });
+            });
           
-              const mailOptions = {
-                from: 'skandahebbar@gmail.com',
+            const mailOptions = {
+                from: process.env.EMAIL_USER, // Use the same sender email as configured in the transporter
                 to: email,
                 subject: 'RESET PASSWORD',
-                text: `VERIFICASTION OTP:${OTP}`,
-              };
-          
+                text: `VERIFICATION OTP: ${OTP}`,
+            };
               await transporter.sendMail(mailOptions);
               console.log('Email sent: OTP confirmation');
 
@@ -140,10 +150,17 @@ app.post('/login', async (req, res) => {
         if (isMatch) {
             // Generate JWT
             const token = jwt.sign({ userId: user._id }, 'your_secret_key_here', { expiresIn: '1h' });
-            return res.json({ message: 'Login successful', token });
+            res.cookie('token', token, { httpOnly: true });
+        return res.json({ message: 'Login successful', token });
+          
         } else {
             return res.status(401).json({ message: 'user email not exist' });
-        }
+        } 
+        
+
+        // Set the token as a cookie
+        res.cookie('token', token, { httpOnly: true });
+        return res.json({ message: 'Login successful', token });
 
     } catch (error) {
         console.error('Error:', error);

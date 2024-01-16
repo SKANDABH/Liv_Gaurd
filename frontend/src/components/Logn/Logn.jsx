@@ -1,8 +1,10 @@
     import React, { useState } from 'react';
     import './Logn.css';
     import { Link } from 'react-router-dom';
+    import { useNavigate  } from 'react-router-dom';
+    import Cookies from 'js-cookie';
     
-    const Logn = () => {
+    const Logn = () => {const navigate  = useNavigate();
         const [passwordVisible, setPasswordVisible] = useState(false);
 
         const toggleVisibility = () => {
@@ -31,7 +33,10 @@
                 // TODO: Handle the response appropriately (e.g., show a message to the user)
                
                if(response.ok) {alert("Login successful");
-            window.location.href="/"}    
+               Cookies.set(Cookies.set('token', data.token, { expires: 1, path: '/' }),
+
+               // Redirect to the desired route
+               navigate('/'),)}    
                else if(response.status===400){alert("user email not exist");} 
                else {alert("Incorrect password");} 
             } catch (error) {

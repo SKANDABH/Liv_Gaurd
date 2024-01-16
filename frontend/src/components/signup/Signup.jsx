@@ -1,6 +1,8 @@
     import { Link } from 'react-router-dom';
     import './Signup.css';
     import React, { useState } from 'react';
+    // import { auth } from "../firebase";
+
 
     const Signup = () => {
         const [passwordVisible, setPasswordVisible] = useState(false);
@@ -39,7 +41,7 @@
                 else{
                     alert("email is already exist");
                 }
-            } catch (error) {alert("email is already exist");
+            } catch (error) {alert("error occured");
                 console.error('Error:', error);
             }
         };
